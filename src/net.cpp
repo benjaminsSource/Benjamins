@@ -1190,11 +1190,14 @@ void MapPort(bool)
 // Each pair gives a source name and a seed name.
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
-
-
+static const char *strMainNetDNSSeed[][2] = {
+    {"Benjamins", "198.147.23.176"},
+    {NULL, NULL}
+};
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"StableA", "198.147.23.176"},
+    {"bitcoin.petertodd.org", "testnet-seed.benjamins.petertodd.org"},
+    {"bluematt.me", "testnet-seed.bluematt.me"},
     {NULL, NULL}
 };
 
@@ -1895,3 +1898,6 @@ void RelayTransaction(const CTransaction& tx, const uint256& hash, const CDataSt
             pnode->PushInventory(inv);
     }
 }
+
+
+
